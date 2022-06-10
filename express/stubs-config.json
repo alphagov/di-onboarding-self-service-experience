@@ -26,6 +26,17 @@
           }
         }
       }
+    },
+    {
+      "parameter": "email",
+      "value": "registering-successfully@gds.gov.uk",
+      "return": {
+        "Session": {
+          "authenticationResult": {
+            "AccessToken": "Fooo"
+          }
+        }
+      }
     }
   ]
 }
