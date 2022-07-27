@@ -7,8 +7,8 @@ export function passwordValidator(render: string, isLogIn: boolean): MiddlewareF
         let password: string = req.body['password'];
         password = password.trim();
 
-        if (!isLogIn) {
-            if (password === '') {
+        if (password === '') {
+            if (!isLogIn) {
                 await errorResponse(render, password, res, 'password', 'Enter a password');
             }
             return;
