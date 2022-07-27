@@ -8,9 +8,9 @@ export function passwordValidator(render: string, isLogIn: boolean): MiddlewareF
         password = password.trim();
         if (!eightDigitsMinimum(password)) {
             if (isLogIn) {
-                await errorResponse(render, password, res, 'password', 'Enter your password');
+                await errorResponse(render, password, res, 'password', 'Enter a password');
             } else {
-                await errorResponse(render, password, res, 'password', 'Your password must be at least 8 characters long');
+                await errorResponse(render, password, res, 'password', 'Your password must be 8 characters or more');
             }
             return;
         }
