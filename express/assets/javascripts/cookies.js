@@ -79,13 +79,26 @@ var cookieBanner = function () {
         const expiryDate = new Date(
             currentDate.setMonth(currentDate.getMonth() + 12)
         );
-        document.cookie =
-            name + "=" +
-            JSON.stringify(value) +
-            "; domain=" + getCookieDomain() +
-            "; expires=" +
-            expiryDate +
-            "; path=/; ";
+
+        const NON_PROD_HOSTNAME = 'london.cloudapps.digital';
+
+        if (window.location.hostname.includes(NON_PROD_HOSTNAME)) {
+            document.cookie =
+                name + "=" +
+                JSON.stringify(value) +
+                "; expires=" +
+                expiryDate +
+                "; path=/; Secure";
+        } else {
+            document.cookie =
+                name + "=" +
+                JSON.stringify(value) +
+                "; domain=" + getCookieDomain() +
+                "; expires=" +
+                expiryDate +
+                "; path=/; ";
+        }
+
     }
 
     function hideElement(el) {
